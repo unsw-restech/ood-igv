@@ -1,0 +1,10 @@
+---
+name: IGV
+category: Interactive Apps
+subcategory: GUIs
+role: batch_connect
+description: |
+  This page will launch [IGV] on a compute node in the [Katana cluster].
+
+  [IGV]: http://www.broadinstitute.org/software/igv
+  [Katana cluster]: https://unsw-restech.github.io/restech-docs

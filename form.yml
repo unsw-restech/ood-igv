@@ -1,0 +1,66 @@
+---
+cluster: "katana"
+form:
+  - version
+  - bc_num_hours
+  - num_cores
+  - memory
+  - java_memory
+  - use_igvtools_gui
+  - bc_vnc_resolution
+  - bc_email_on_started
+attributes:
+  bc_num_hours:
+    help: >-
+      <a href="https://unsw-restech.github.io/using_katana/running_jobs.html#tips-for-using-pbs-and-katana-effectively">Tips for using Katana effectively</a>
+  num_cores:
+    id: num_cores
+    widget: number_field
+    label: "Number of cores"
+    value: 1
+    min: 0
+    max: 48
+    step: 1
+    help: >-
+      How many processor cores you need.
+  memory:
+    widget: number_field
+    label: "Memory (GB)"
+    value: 8
+    min: 4
+    max: 1000
+    step: 1
+    help: >-
+      How much memory you need.  If the amount of memory you request goes
+      over certain thresholds, it will affect your wait time.  The points
+      at which this happens are 124, 180, 248, 370, 750 and 1000 GB.
+  java_memory:
+    widget: number_field
+    label: "Java Heap Memory (GB)"
+    value: 4
+    min: 1
+    max: 1000
+    step: 1
+    help: >-
+      How much memory the Java interpreter needs for its heap.  Modify
+      the default value of 4 only if the underlying Java interpreter
+      complains that it has run out of memory.
+  use_igvtools_gui:
+    widget: check_box
+    checked_value: 1
+    unchecked_value: 0
+    value: 0
+    label: Run IGV Tools instead of the main IGV application
+    help: >-
+      Run the IGV Tools utility program instead of the main IGV
+      application.  This option only works with IGV 2.8.0 and newer.
+  bc_vnc_resolution:
+    required: true
+  version:
+    widget: select
+    label: "IGV version"
+    help: >-
+      Which version of IGV you want to use.
+    options:
+      - [ "2.8.0",  "openjdk/15.0.1 igv/2.8.0" ]
+      - [ "2.4.14", "igv/2.4.14" ]
